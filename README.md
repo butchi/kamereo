@@ -28,7 +28,11 @@ See [demo page](http://butchi.github.io/kamereo/demo/) also.
     <title>kamereo sample</title>
   </head>
   <body>
-    <div class="kamereo-elm" data-src="img/sample.svg"></div>
+    <div class="wrapper">
+      <div class="kamereo-elm" data-src="img/sample.svg"></div>
+    </div>
+
+    <script src="js/lib/kamereo.deco.js"></script>
   </body>
 </html>
 ```
@@ -51,7 +55,11 @@ new Kamereo({
     <title>kamereo sample</title>
   </head>
   <body>
-    <div class="camereo-elm" data-camereo-element data-src="img/sample.svg" data-color-from="#618F75" data-color-to="red"></div>
+    <div class="wrapper">
+      <div class="camereo-elm" data-camereo-element data-src="img/sample.svg" data-color-from="#618F75" data-color-to="red"></div>
+    </div>
+
+    <script src="js/lib/kamereo.deco.js"></script>
   </body>
 </html>
 ```
