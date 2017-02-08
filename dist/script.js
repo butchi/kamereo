@@ -553,7 +553,6 @@ function getColorArr(str) {
           if (_this.fromArr && _this.toArr) {
             if (_this.toArr.length === 1) {
               for (var i = 0; i < _this.fromArr.length; i++) {
-                console.log(_this.fromArr);
                 kamered = kamered.replace(_this.fromArr[i], _this.toArr[0]);
               }
             } else {

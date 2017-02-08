@@ -75,7 +75,6 @@ function getColorArr(str) {
           if(this.fromArr && this.toArr) {
             if(this.toArr.length === 1) {
               for(let i = 0; i < this.fromArr.length; i++) {
-                console.log(this.fromArr);
                 kamered = kamered.replace(this.fromArr[i], this.toArr[0]);
               }
             } else {
