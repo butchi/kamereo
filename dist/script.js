@@ -496,9 +496,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.from = this.elm.getAttribute('data-color-from');
         this.to = this.elm.getAttribute('data-color-to');
 
+        this.apply = opts.apply;
+
         fetch(this.src).then(function (response) {
           return response.text();
         }).then(function (svg) {
+          var parser = new DOMParser();
+          var dom = parser.parseFromString(svg, 'image/svg+xml');
+
+          if (typeof _this.apply === 'function') {
+            dom = _this.apply(dom);
+
+            var serializer = new XMLSerializer();
+            svg = serializer.serializeToString(dom);
+          }
+
           var kamered = svg.replace(_this.from, _this.to);
           var encoded = encodeURIComponent(kamered);
 

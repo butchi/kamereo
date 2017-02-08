@@ -15,10 +15,22 @@ import 'whatwg-fetch';
       this.from = this.elm.getAttribute('data-color-from');
       this.to = this.elm.getAttribute('data-color-to');
 
+      this.apply = opts.apply;
+
       fetch(this.src)
         .then((response) => {
-          return response.text()
+          return response.text();
         }).then((svg) => {
+          let parser = new DOMParser();
+          let dom = parser.parseFromString(svg, 'image/svg+xml');
+
+          if(typeof this.apply === 'function') {
+            dom = this.apply(dom);
+
+            let serializer = new XMLSerializer();
+            svg = serializer.serializeToString(dom);
+          }
+
           let kamered = svg.replace(this.from, this.to);
           let encoded = encodeURIComponent(kamered);
 
