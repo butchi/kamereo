@@ -459,7 +459,6 @@
 })(typeof self !== 'undefined' ? self : this);
 
 },{}],2:[function(require,module,exports){
-(function (global){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -469,8 +468,6 @@ Object.defineProperty(exports, "__esModule", {
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-require('whatwg-fetch');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -583,11 +580,29 @@ var KamereoCore = function () {
   return KamereoCore;
 }();
 
+exports.default = KamereoCore;
+
+},{}],3:[function(require,module,exports){
+(function (global){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+require('whatwg-fetch');
+
+var _KamereoCore = require('./KamereoCore');
+
+var _KamereoCore2 = _interopRequireDefault(_KamereoCore);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 if (global.document) {
   var elmArr = document.querySelectorAll('[data-camereo-element]');
 
   [].forEach.call(elmArr, function (elm) {
-    new KamereoCore({
+    new _KamereoCore2.default({
       elm: elm
     });
   });
@@ -607,20 +622,17 @@ var Kamereo = function () {
     value: function initialize() {
       var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-      new KamereoCore(opts);
+      new _KamereoCore2.default(opts);
     }
   }]);
 
   return Kamereo;
 }();
 
-exports.default = Kamereo;
+// add global method
 
 
-if (window) {
-  // add global method
-  window.Kamereo = Kamereo;
-}
+global.Kamereo = Kamereo;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"whatwg-fetch":1}]},{},[2]);
+},{"./KamereoCore":2,"whatwg-fetch":1}]},{},[3]);
