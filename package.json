@@ -28,6 +28,7 @@
   "homepage": "https://github.com/butchi/kamereo#readme",
   "devDependencies": {
     "babel": "^6.5.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
     "babel-preset-es2015": "^6.1.18",
     "babelify": "^7.3.0",
     "browser-sync": "^2.11.1",
@@ -44,6 +45,9 @@
   "babel": {
     "presets": [
       "es2015"
+    ],
+    "plugins": [
+      "transform-es2015-modules-commonjs"
     ]
   }
 }
