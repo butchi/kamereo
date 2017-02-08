@@ -39,8 +39,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.1",
     "gulp-watch": "^4.3.9",
-    "vinyl-source-stream": "^1.1.0",
-    "whatwg-fetch": "^2.0.2"
+    "vinyl-source-stream": "^1.1.0"
   },
   "babel": {
     "presets": [
@@ -49,5 +48,8 @@
     "plugins": [
       "transform-es2015-modules-commonjs"
     ]
+  },
+  "dependencies": {
+    "whatwg-fetch": "^2.0.2"
   }
 }
