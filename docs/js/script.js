@@ -1,1 +1,3 @@
-new NpmStarter();
+new Kamereo({
+  elm: document.querySelector('.kamereo-obj'),
+});
