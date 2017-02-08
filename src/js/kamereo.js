@@ -24,4 +24,4 @@ class Kamereo {
 // export
 global.Kamereo = Kamereo;
 
-export default class Kamereo;
+export default Kamereo;
