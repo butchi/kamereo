@@ -20,7 +20,7 @@ const DEST = './dist';
 
 
 gulp.task('browserify', () => {
-  return browserify(`${SRC}/${APP}.js`)
+  return browserify(`${SRC}/js/${APP}.js`)
     .transform(babelify)
     .bundle()
     .pipe(source(`${APP}.js`))

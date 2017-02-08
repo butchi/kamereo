@@ -8,8 +8,10 @@
   ],
   "license": "MIT",
   "keywords": [
-    "starterkit"
-  ],
+    "color",
+    "convert",
+    "svg"
+ ],
   "homepage": "https://github.com/butchi/kamereo",
   "moduleType": [],
   "ignore": [

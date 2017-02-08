@@ -2,7 +2,7 @@
   "name": "kamereo",
   "version": "0.2.2",
   "description": "SVG color controller library.",
-  "main": "src/script.js",
+  "main": "src/js/script.js",
   "engines": {
     "node": ">=6.9.1"
   },
@@ -16,7 +16,9 @@
     "url": "git+https://github.com/butchi/kamereo.git"
   },
   "keywords": [
-    "starterkit"
+    "color",
+    "convert",
+    "svg"
   ],
   "author": "IWABUCHI Yuuki",
   "license": "MIT",
@@ -36,14 +38,12 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.1",
     "gulp-watch": "^4.3.9",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "whatwg-fetch": "^2.0.2"
   },
   "babel": {
     "presets": [
       "es2015"
     ]
-  },
-  "dependencies": {
-    "whatwg-fetch": "^2.0.2"
   }
 }
