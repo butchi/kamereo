@@ -2,7 +2,7 @@
   "name": "kamereo",
   "version": "0.2.2",
   "description": "SVG color controller library.",
-  "main": "src/script.js",
+  "main": "src/js/script.js",
   "authors": [
     "IWABUCHI Yuuki <k38647@gmail.com>"
   ],
