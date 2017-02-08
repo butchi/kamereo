@@ -11,20 +11,17 @@ if(global.document) {
   });
 }
 
-(function() {
-  'use strict';
-  class Kamereo {
-    constructor(opts = {}) {
-      this.initialize(opts);
-    }
-
-    initialize(opts = {}) {
-      new KamereoCore(opts);
-    }
+class Kamereo {
+  constructor(opts = {}) {
+    this.initialize(opts);
   }
 
-  // export
-  global.Kamereo = Kamereo;
+  initialize(opts = {}) {
+    new KamereoCore(opts);
+  }
+}
 
-  export default class Kamereo;
-})();
+// export
+global.Kamereo = Kamereo;
+
+export default class Kamereo;
