@@ -25,9 +25,9 @@ if(global.document) {
 
   // export
   global.Kamereo = Kamereo;
-})();
 
-// exports
-if(module) {
-  module.exports = Kamereo;
-}
+  // exports
+  if(module) {
+    module.exports = Kamereo;
+  }
+})();
