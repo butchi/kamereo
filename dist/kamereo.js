@@ -586,6 +586,10 @@ exports.default = KamereoCore;
 (function (global){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 require('whatwg-fetch');
@@ -608,40 +612,32 @@ if (global.document) {
   });
 }
 
-(function () {
-  'use strict';
+var Kamereo = function () {
+  function Kamereo() {
+    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-  var Kamereo = function () {
-    function Kamereo() {
+    _classCallCheck(this, Kamereo);
+
+    this.initialize(opts);
+  }
+
+  _createClass(Kamereo, [{
+    key: 'initialize',
+    value: function initialize() {
       var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-      _classCallCheck(this, Kamereo);
-
-      this.initialize(opts);
+      new _KamereoCore2.default(opts);
     }
+  }]);
 
-    _createClass(Kamereo, [{
-      key: 'initialize',
-      value: function initialize() {
-        var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return Kamereo;
+}();
 
-        new _KamereoCore2.default(opts);
-      }
-    }]);
-
-    return Kamereo;
-  }();
-
-  // export
+// add global method
 
 
-  global.Kamereo = Kamereo;
-})();
-
-// exports
-if (module) {
-  module.exports = Kamereo;
-}
+exports.default = Kamereo;
+global.Kamereo = Kamereo;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./KamereoCore":2,"whatwg-fetch":1}]},{},[3]);
