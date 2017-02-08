@@ -117,5 +117,7 @@ export default class Kamereo {
   }
 }
 
-// add global method
-global.Kamereo = Kamereo;
+if(window) {
+  // add global method
+  window.Kamereo = Kamereo;
+}

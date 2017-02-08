@@ -614,11 +614,13 @@ var Kamereo = function () {
   return Kamereo;
 }();
 
-// add global method
-
-
 exports.default = Kamereo;
-global.Kamereo = Kamereo;
+
+
+if (window) {
+  // add global method
+  window.Kamereo = Kamereo;
+}
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"whatwg-fetch":1}]},{},[2]);
