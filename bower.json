@@ -1,6 +1,6 @@
 {
   "name": "kamereo",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "SVG color controller library.",
   "main": "src/script.js",
   "authors": [
