@@ -638,5 +638,10 @@ if (global.document) {
   global.Kamereo = Kamereo;
 })();
 
+// exports
+if (module) {
+  module.exports = Kamereo;
+}
+
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./KamereoCore":2,"whatwg-fetch":1}]},{},[3]);
