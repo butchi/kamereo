@@ -598,6 +598,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+if (global.document) {
+  var elmArr = document.querySelectorAll('[data-camereo-element]');
+
+  [].forEach.call(elmArr, function (elm) {
+    new _KamereoCore2.default({
+      elm: elm
+    });
+  });
+}
+
 (function () {
   'use strict';
 
