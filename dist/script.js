@@ -470,6 +470,22 @@ require('whatwg-fetch');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function getColorArr(str) {
+  if (str.match(/^#[0-9a-fA-F]+$/) || str.match(/^[a-zA-Z]+$/)) {
+    return [str];
+  } else {
+    var ret = void 0;
+    str = str.replace(/\'/g, '"');
+    try {
+      ret = JSON.parse(str);
+    } catch (e) {
+      console.error('invalid color.');
+    }
+
+    return ret;
+  }
+}
+
 (function () {
   'use strict';
 
@@ -493,8 +509,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.src = this.elm.getAttribute('data-src');
 
-        this.from = this.elm.getAttribute('data-color-from');
-        this.to = this.elm.getAttribute('data-color-to');
+        var from = this.elm.getAttribute('data-color-from');
+        var to = this.elm.getAttribute('data-color-to');
+
+        if (from) {
+          this.fromArr = getColorArr(from);
+        }
+
+        if (to) {
+          this.toArr = getColorArr(this.elm.getAttribute('data-color-to'));
+        }
 
         this.apply = opts.apply;
 
@@ -511,7 +535,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             svg = serializer.serializeToString(dom);
           }
 
-          var kamered = svg.replace(_this.from, _this.to);
+          if (typeof _this.from === 'string') {
+            console.log(_this.from);
+          }
+
+          var kamered = svg;
+
+          if (from && to) {
+            if (_this.toArr.length === 1) {
+              for (var i = 0; i < _this.fromArr.length; i++) {
+                console.log(_this.fromArr);
+                kamered = kamered.replace(_this.fromArr[i], _this.toArr[0]);
+              }
+            } else {
+              var len = Math.min(_this.fromArr.length, _this.toArr.length);
+
+              for (var _i = 0; _i < len; _i++) {
+                kamered = kamered.replace(_this.fromArr[_i], _this.toArr[_i]);
+              }
+            }
+          }
+
           var encoded = encodeURIComponent(kamered);
 
           _this.elm.style['background-image'] = 'url("data:image/svg+xml,' + encoded + '")';

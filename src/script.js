@@ -1,5 +1,21 @@
 import 'whatwg-fetch';
 
+function getColorArr(str) {
+  if(str.match(/^#[0-9a-fA-F]+$/) || str.match(/^[a-zA-Z]+$/)) {
+    return [str];
+  } else {
+    let ret;
+    str = str.replace(/\'/g, '"');
+    try {
+      ret = JSON.parse(str);
+    } catch(e) {
+      console.error('invalid color.');
+    }
+
+    return ret;
+  }
+}
+
 (function() {
   'use strict';
   class Kamereo {
@@ -12,8 +28,16 @@ import 'whatwg-fetch';
 
       this.src = this.elm.getAttribute('data-src');
 
-      this.from = this.elm.getAttribute('data-color-from');
-      this.to = this.elm.getAttribute('data-color-to');
+      let from = this.elm.getAttribute('data-color-from');
+      let to = this.elm.getAttribute('data-color-to');
+
+      if(from) {
+        this.fromArr = getColorArr(from);
+      }
+
+      if(to) {
+        this.toArr = getColorArr(this.elm.getAttribute('data-color-to'));
+      }
 
       this.apply = opts.apply;
 
@@ -31,7 +55,27 @@ import 'whatwg-fetch';
             svg = serializer.serializeToString(dom);
           }
 
-          let kamered = svg.replace(this.from, this.to);
+          if(typeof this.from === 'string') {
+            console.log(this.from);
+          }
+
+          let kamered = svg;
+
+          if(from && to) {
+            if(this.toArr.length === 1) {
+              for(let i = 0; i < this.fromArr.length; i++) {
+                console.log(this.fromArr);
+                kamered = kamered.replace(this.fromArr[i], this.toArr[0]);
+              }
+            } else {
+              let len = Math.min(this.fromArr.length, this.toArr.length);
+
+              for(let i = 0; i < len; i++) {
+                kamered = kamered.replace(this.fromArr[i], this.toArr[i]);
+              }
+            }
+          }
+
           let encoded = encodeURIComponent(kamered);
 
           this.elm.style['background-image'] = `url("data:image/svg+xml,${encoded}")`;
