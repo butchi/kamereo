@@ -28,7 +28,7 @@ See [demo page](http://butchi.github.io/kamereo/demo/) also.
     <title>kamereo sample</title>
   </head>
   <body>
-    <div class="kamereo-elm"></div>
+    <div class="kamereo-elm" data-src="img/sample.svg"></div>
   </body>
 </html>
 ```
