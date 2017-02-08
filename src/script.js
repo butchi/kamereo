@@ -28,15 +28,30 @@ function getColorArr(str) {
 
       this.src = this.elm.getAttribute('data-src');
 
-      let from = this.elm.getAttribute('data-color-from');
-      let to = this.elm.getAttribute('data-color-to');
+      let fromOpt = opts.from;
+      let toOpt = opts.to;
 
-      if(from) {
-        this.fromArr = getColorArr(from);
+      let fromAttr = this.elm.getAttribute('data-color-from');
+      let toAttr = this.elm.getAttribute('data-color-to');
+
+      if(fromAttr) {
+        this.fromArr = getColorArr(fromAttr);
+      }
+      if(fromOpt == null) {
+      } else if(typeof fromOpt === 'string') {
+        this.fromArr = [fromOpt];
+      } else if(fromOpt instanceof Array) {
+        this.fromArr = fromOpt;
       }
 
-      if(to) {
-        this.toArr = getColorArr(this.elm.getAttribute('data-color-to'));
+      if(toAttr) {
+        this.toArr = getColorArr(toAttr);
+      }
+      if(toOpt == null) {
+      } else if(typeof toOpt === 'string') {
+       this.toArr = [toOpt];
+      } else if(toOpt instanceof Array) {
+        this.toArr = toOpt;
       }
 
       this.apply = opts.apply;
@@ -55,13 +70,9 @@ function getColorArr(str) {
             svg = serializer.serializeToString(dom);
           }
 
-          if(typeof this.from === 'string') {
-            console.log(this.from);
-          }
-
           let kamered = svg;
 
-          if(from && to) {
+          if(this.fromArr && this.toArr) {
             if(this.toArr.length === 1) {
               for(let i = 0; i < this.fromArr.length; i++) {
                 console.log(this.fromArr);
