@@ -2,7 +2,7 @@
   "name": "kamereo",
   "version": "0.2.7",
   "description": "SVG color controller library.",
-  "main": "src/js/script.js",
+  "main": "./src/js/script",
   "engines": {
     "node": ">=6.9.1"
   },

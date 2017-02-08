@@ -11,7 +11,7 @@ if(global.document) {
   });
 }
 
-class Kamereo {
+export default class Kamereo {
   constructor(opts = {}) {
     this.initialize(opts);
   }
@@ -21,7 +21,5 @@ class Kamereo {
   }
 }
 
-// export
+// add global method
 global.Kamereo = Kamereo;
-
-export default Kamereo;
