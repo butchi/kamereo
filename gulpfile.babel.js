@@ -39,7 +39,7 @@ gulp.task('minify', () => {
 gulp.task('deco', () => {
   return gulp.src(`${DEST}/${APP}.js`)
     .pipe(decodecode({
-      decoArr: ['b', 'u', 't', 'c', 'h', 'i'],
+      decoArr: ['赤', '橙', '黄', '緑', '青', '藍', '紫'],
     }))
     .pipe(rename(`${APP}.deco.js`))
     .pipe(gulp.dest(`${DEST}`))
