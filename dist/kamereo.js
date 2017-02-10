@@ -604,7 +604,7 @@ if (global.document) {
   });
 }
 
-if (jQuery) {
+if (global.jQuery) {
   jQuery.fn.kamereo = function () {
     var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 

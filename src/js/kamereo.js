@@ -10,7 +10,7 @@ if(global.document) {
   });
 }
 
-if(jQuery) {
+if(global.jQuery) {
   jQuery.fn.kamereo = function(opts = {}) {
     opts.elm = this[0];
     new KamereoCore(opts);
