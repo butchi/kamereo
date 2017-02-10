@@ -2,7 +2,7 @@ import 'whatwg-fetch';
 import KamereoCore from './KamereoCore';
 
 if(global.document) {
-  let elmArr = document.querySelectorAll('[data-camereo-element]');
+  let elmArr = document.querySelectorAll('[data-kamereo-element]');
 
   [].forEach.call(elmArr, (elm) => {
     new KamereoCore({
