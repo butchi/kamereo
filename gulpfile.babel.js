@@ -2,9 +2,7 @@
 
 // import
 import gulp from 'gulp';
-import source from 'vinyl-source-stream';
-import browserify from 'browserify';
-import babelify from 'babelify';
+import babel from 'gulp-babel';
 import rename from 'gulp-rename';
 import uglify from 'gulp-uglify';
 import decodecode from 'gulp-decodecode';
@@ -19,14 +17,11 @@ const HTDOCS = './docs';
 const DEST = './dist';
 
 
-gulp.task('browserify', () => {
-  return browserify(`${SRC}/js/${APP}.js`)
-    .transform(babelify)
-    .bundle()
-    .pipe(source(`${APP}.js`))
-    .pipe(gulp.dest(`${DEST}`))
-  ;
-});
+gulp.task('babel', () => {
+  return gulp.src(`${SRC}/js/${APP}.js`)
+    .pipe(babel())
+    .pipe(gulp.dest(`${DEST}`));
+})
 
 gulp.task('minify', () => {
   return gulp.src(`${DEST}/${APP}.js`)
@@ -47,7 +42,7 @@ gulp.task('deco', () => {
   ;
 });
 
-gulp.task('js', gulp.series('browserify', gulp.parallel('minify', 'deco')));
+gulp.task('js', gulp.series('babel', gulp.parallel('minify', 'deco')));
 
 
 gulp.task('browser-sync' , () => {
