@@ -81,5 +81,6 @@ gulp.task('browser-sync' , () => {
 gulp.task('serve', gulp.series('browser-sync'));
 
 
-gulp.task('build', gulp.series('js-module', 'js-lib'));
+gulp.task('js', gulp.series('js-module', 'js-lib'));
+gulp.task('build', gulp.series('js'));
 gulp.task('default', gulp.series('build', 'serve'));
