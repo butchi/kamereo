@@ -2,7 +2,7 @@
   "name": "kamereo",
   "version": "0.3.4",
   "description": "SVG color controller library.",
-  "main": "dist/kamereo.deco.js",
+  "main": "main.js",
   "authors": [
     "IWABUCHI Yuuki <k38647@gmail.com>"
   ],
@@ -16,6 +16,7 @@
   "moduleType": [],
   "ignore": [
     "**/.*",
+    "main.js",
     "node_modules",
     "bower_components",
     "test",
