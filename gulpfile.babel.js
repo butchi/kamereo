@@ -47,7 +47,7 @@ gulp.task('minify', () => {
       preserveComments: 'license',
     }))
     .pipe(rename(`${APP}.min.js`))
-    .pipe(gulp.dest(`${DEST}/js`))
+    .pipe(gulp.dest(`${DEST}`))
   ;
 });
 
