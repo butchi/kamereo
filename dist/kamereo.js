@@ -629,9 +629,16 @@ var Kamereo = function () {
   return Kamereo;
 }();
 
+if (jQuery) {
+  jQuery.fn.kamereo = function () {
+    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    opts.elm = this[0];
+    new _KamereoCore2.default(opts);
+  };
+}
+
 // add global method
-
-
 global.Kamereo = Kamereo;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})

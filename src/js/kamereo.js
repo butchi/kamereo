@@ -21,5 +21,12 @@ class Kamereo {
   }
 }
 
+if(jQuery) {
+  jQuery.fn.kamereo = function(opts = {}) {
+    opts.elm = this[0];
+    new KamereoCore(opts);
+  }
+}
+
 // add global method
 global.Kamereo = Kamereo;
