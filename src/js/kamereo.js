@@ -11,7 +11,7 @@ if(global.document) {
   });
 }
 
-class Kamereo {
+export default class Kamereo {
   constructor(opts = {}) {
     this.initialize(opts);
   }
@@ -27,6 +27,3 @@ if(jQuery) {
     new KamereoCore(opts);
   }
 }
-
-// add global method
-global.Kamereo = Kamereo;

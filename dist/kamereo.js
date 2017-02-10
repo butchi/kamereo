@@ -586,6 +586,10 @@ exports.default = KamereoCore;
 (function (global){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 require('whatwg-fetch');
@@ -629,6 +633,9 @@ var Kamereo = function () {
   return Kamereo;
 }();
 
+exports.default = Kamereo;
+
+
 if (jQuery) {
   jQuery.fn.kamereo = function () {
     var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -637,9 +644,6 @@ if (jQuery) {
     new _KamereoCore2.default(opts);
   };
 }
-
-// add global method
-global.Kamereo = Kamereo;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./KamereoCore":2,"whatwg-fetch":1}]},{},[3]);
