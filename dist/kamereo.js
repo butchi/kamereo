@@ -507,7 +507,7 @@ var KamereoCore = function () {
 
       this.elm = opts.elm;
 
-      this.src = this.elm.getAttribute('data-src');
+      var src = this.elm.getAttribute('data-src') || opts.src;
 
       var fromOpt = opts.from;
       var toOpt = opts.to;
@@ -535,7 +535,7 @@ var KamereoCore = function () {
 
       this.apply = opts.apply;
 
-      fetch(this.src).then(function (response) {
+      fetch(src).then(function (response) {
         return response.text();
       }).then(function (svg) {
         var parser = new DOMParser();
@@ -568,13 +568,19 @@ var KamereoCore = function () {
 
         _this.elm.style['background-image'] = 'url("data:image/svg+xml,' + encoded + '")';
 
-        var _svg$match$slice = svg.match(/viewBox="([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+)"/).slice(3, 5),
-            _svg$match$slice2 = _slicedToArray(_svg$match$slice, 2),
-            w = _svg$match$slice2[0],
-            h = _svg$match$slice2[1];
+        var autoSizing = opts.autoSizing || false;
 
-        _this.elm.style.width = w + 'px';
-        _this.elm.style.height = h + 'px';
+        autoSizing = _this.elm.getAttribute('data-auto-sizing') === 'true' || autoSizing;
+
+        if (autoSizing) {
+          var _svg$match$slice = svg.match(/viewBox="([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+)"/).slice(3, 5),
+              _svg$match$slice2 = _slicedToArray(_svg$match$slice, 2),
+              w = _svg$match$slice2[0],
+              h = _svg$match$slice2[1];
+
+          _this.elm.style.width = w + 'px';
+          _this.elm.style.height = h + 'px';
+        }
       });
     }
   }]);
