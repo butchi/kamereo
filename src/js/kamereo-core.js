@@ -24,7 +24,7 @@ export default class KamereoCore {
   initialize(opts = {}) {
     this.elm = opts.elm;
 
-    this.src = this.elm.getAttribute('data-src');
+    let src = this.elm.getAttribute('data-src') || opts.src;
 
     let fromOpt = opts.from;
     let toOpt = opts.to;
@@ -54,7 +54,7 @@ export default class KamereoCore {
 
     this.apply = opts.apply;
 
-    fetch(this.src)
+    fetch(src)
       .then((response) => {
         return response.text();
       }).then((svg) => {
