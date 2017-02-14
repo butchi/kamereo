@@ -88,10 +88,16 @@ export default class KamereoCore {
 
         this.elm.style['background-image'] = `url("data:image/svg+xml,${encoded}")`;
 
-        let [w, h] = svg.match(/viewBox="([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+)"/).slice(3, 5);
+        let autoSizing = opts.autoSizing || false;
 
-        this.elm.style.width = `${w}px`;
-        this.elm.style.height = `${h}px`;
+        autoSizing = (this.elm.getAttribute('data-auto-sizing') === 'true') || autoSizing;
+
+        if(autoSizing) {
+          let [w, h] = svg.match(/viewBox="([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+)"/).slice(3, 5);
+
+          this.elm.style.width = `${w}px`;
+          this.elm.style.height = `${h}px`;
+        }
       })
     ;
   }
