@@ -12,8 +12,10 @@ if(global.document) {
 
 if(global.jQuery) {
   jQuery.fn.kamereo = function(opts = {}) {
-    opts.elm = this[0];
-    new KamereoCore(opts);
+    this.each(function(i, elm) {
+      opts.elm = elm;
+      new KamereoCore(opts);
+    });
   };
 }
 

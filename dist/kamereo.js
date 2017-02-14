@@ -614,8 +614,10 @@ if (global.jQuery) {
   jQuery.fn.kamereo = function () {
     var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-    opts.elm = this[0];
-    new _kamereoCore2.default(opts);
+    this.each(function (i, elm) {
+      opts.elm = elm;
+      new _kamereoCore2.default(opts);
+    });
   };
 }
 
