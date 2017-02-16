@@ -1,4 +1,7 @@
 import 'whatwg-fetch';
+import es6promise from 'es6-promise';
+
+es6promise.polyfill();
 
 function getColorArr(str) {
   if(str.match(/^#[0-9a-fA-F]+$/) || str.match(/^[a-zA-Z]+$/)) {

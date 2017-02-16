@@ -10,7 +10,15 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 require('whatwg-fetch');
 
+var _es6Promise = require('es6-promise');
+
+var _es6Promise2 = _interopRequireDefault(_es6Promise);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+_es6Promise2.default.polyfill();
 
 function getColorArr(str) {
   if (str.match(/^#[0-9a-fA-F]+$/) || str.match(/^[a-zA-Z]+$/)) {
